@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="FitnessValuesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TieBreakerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
