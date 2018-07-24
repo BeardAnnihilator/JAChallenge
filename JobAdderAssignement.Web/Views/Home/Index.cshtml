@@ -1,33 +1,39 @@
 ﻿@model List<JobAdderAssignement.Logic.ProcessedJob>
-
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<div style="margin:10px;" class="row">
+    @foreach (var job in Model)
+    {
+        <div class="col-6 col-lg-4 panel panel-default">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+            <h2 style="white-space: nowrap;">@job.name</h2>
+            <h4>@@ @job.company</h4>
+            <p>
+                <ul>
+                    @foreach (string skill in job.skills.Split(',').Take(3))
+                {
+                        <li>@skill</li>
+                    }
+                </ul>
+            </p>
+            <u>Best fit</u>
+            <div>
+                <div class="progress progress-bar-vertical" style="float:left;">
+                    <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="@job.SortedCandidates[0].PercentSkills" aria-valuemin="0" aria-valuemax="100" style="height: @job.SortedCandidates[0].PercentSkills%;">
+                        @job.SortedCandidates[0].PercentSkills
+                        %
+                    </div>
+                </div>
+                <img style="float:left; height:100px" src=@("https://randomuser.me/api/portraits/" + (job.SortedCandidates[0].candidateId%2 == 0?"men":"women") + "/"+ (job.SortedCandidates[0].candidateId%100 + 1) + ".jpg") />
+
+                <b>@job.SortedCandidates[0].name.Split(' ')[0]</b>
+                <br />
+                <b>@job.SortedCandidates[0].name.Split(' ')[1]</b>
+            </div>
+
+
+        </div>
+    }
 </div>
