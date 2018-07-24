@@ -42,6 +42,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -75,6 +79,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -86,6 +91,10 @@
     <ProjectReference Include="..\JobAdderAssignement.Logic\JobAdderAssignement.Logic.csproj">
       <Project>{2202ded5-5193-4d29-b379-2b90c63eba48}</Project>
       <Name>JobAdderAssignement.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobAdderAssignement.Model\JobAdderAssignement.Model.csproj">
+      <Project>{8f060245-00ad-430a-8c56-30e592803361}</Project>
+      <Name>JobAdderAssignement.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
