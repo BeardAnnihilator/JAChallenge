@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JobAdderAssignement.Logic;
+using JobAdderAssignement.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,27 @@ namespace JobAdderAssignement.Web.Controllers
 {
     public class HomeController : Controller
     {
+        static List<ProcessedJob> ProcessedJobs { get; set; }
+        IProcessedJobService _processedJobService;
+
+        public HomeController(IProcessedJobService processedJobService)
+        {
+            _processedJobService = processedJobService;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            if (ProcessedJobs == null)
+            {
+                InitialDataLoad();
+            }
+
+            return View(ProcessedJobs);
+        }
+
+        private void InitialDataLoad()
+        {
+            ProcessedJobs = _processedJobService.GetProcessedJobs().ProcessedJobs;
         }
 
         public ActionResult About()
