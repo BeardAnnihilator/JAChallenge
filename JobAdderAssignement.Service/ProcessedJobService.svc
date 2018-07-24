@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="JobAdderAssignement.Service.ProcessedJobService" CodeBehind="ProcessedJobService.svc.cs" %>
