@@ -14,7 +14,20 @@ namespace JobAdderAssignement.Logic
 
         public void Process(string jobskills)
         {
-            //todonext
+            int totalnbskills = 0;
+            string[] jobskillsArray = jobskills.Split(',');
+            for (int i = 0; i < jobskillsArray.Length; i++)
+            {
+                totalnbskills++;
+                if (this.skillTags.Contains(jobskillsArray[i].Trim()))
+                {
+                    NbSkillMatching++;
+                    SkillWeight += i;
+                    if (FirstSkillMatchedIndex == 0)
+                        FirstSkillMatchedIndex = i + 1;
+                }
+            }
+            PercentSkills = (int)(((double)NbSkillMatching / totalnbskills) * 100);
         }
     }
 }
