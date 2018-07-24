@@ -14,7 +14,7 @@ namespace JobAdderAssignement.Service
 {
     public class ProcessedJobService : IProcessedJobService
     {
-        readonly string APIURL = "https://jobadder1.docs.apiary.io/";
+        readonly string APIURL = "http://private-76432-jobadder1.apiary-mock.com/";
 
         public ProcessedJobsResponse GetProcessedJobs()
         {

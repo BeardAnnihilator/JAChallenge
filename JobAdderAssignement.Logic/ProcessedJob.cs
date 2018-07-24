@@ -12,6 +12,12 @@ namespace JobAdderAssignement.Logic
         IMapper _iMapper;
         private List<ProcessedCandidate> _candidates;
 
+        public ProcessedJob()
+        {
+            _candidates = new List<ProcessedCandidate>();
+            _iMapper = config.CreateMapper();
+        }
+
         public List<ProcessedCandidate> SortedCandidates
         {
             get
@@ -19,7 +25,7 @@ namespace JobAdderAssignement.Logic
                 return _candidates.OrderByDescending(c => c.NbSkillMatching)
                                     .ThenBy(c => c.SkillWeight)
                                     .ThenBy(c => c.FirstSkillMatchedIndex)
-                                    .Take(CANDIDATE_COUNT).ToList();    
+                                    .Take(CANDIDATE_COUNT).ToList();
             }
         }
 
@@ -33,7 +39,8 @@ namespace JobAdderAssignement.Logic
             }
         }
 
-        MapperConfiguration config = new MapperConfiguration(cfg => {
+        MapperConfiguration config = new MapperConfiguration(cfg =>
+        {
             cfg.CreateMap<Candidate, ProcessedCandidate>();
         });
     }

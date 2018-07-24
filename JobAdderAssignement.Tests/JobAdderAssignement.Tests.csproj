@@ -101,11 +101,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JobAdderAssignement.Logic\JobAdderAssignement.Logic.csproj">
-      <Project>{2202ded5-5193-4d29-b379-2b90c63eba48}</Project>
+      <Project>{921a298a-8c06-4aa5-b817-9c89418a146e}</Project>
       <Name>JobAdderAssignement.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\JobAdderAssignement.Model\JobAdderAssignement.Model.csproj">
-      <Project>{8f060245-00ad-430a-8c56-30e592803361}</Project>
+      <Project>{28d6c5f2-4349-4177-b2ec-b23ad14a6607}</Project>
       <Name>JobAdderAssignement.Model</Name>
     </ProjectReference>
   </ItemGroup>
