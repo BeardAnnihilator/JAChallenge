@@ -89,8 +89,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FitnessValuesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -99,9 +99,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JobAdderAssignement.Web\JobAdderAssignement.Web.csproj">
-      <Project>{75BCA1EF-1974-42E5-8105-E3227B4DF31E}</Project>
-      <Name>JobAdderAssignement.Web</Name>
+    <ProjectReference Include="..\JobAdderAssignement.Logic\JobAdderAssignement.Logic.csproj">
+      <Project>{2202ded5-5193-4d29-b379-2b90c63eba48}</Project>
+      <Name>JobAdderAssignement.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobAdderAssignement.Model\JobAdderAssignement.Model.csproj">
+      <Project>{8f060245-00ad-430a-8c56-30e592803361}</Project>
+      <Name>JobAdderAssignement.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
